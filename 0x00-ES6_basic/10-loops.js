@@ -1,9 +1,9 @@
 #!/usr/bin/node
 
 export default function appendToEachArrayValue(array, appendString) {
-  for (const [idx, val] of array.entries()) {
-    array[idx] = appendString + val;
+  for (const idx of array) {
+    let value = idx;
   }
 
-  return array;
+  return array.map((v) => appendString + v);
 }
