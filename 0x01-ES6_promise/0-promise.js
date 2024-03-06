@@ -1,5 +1,7 @@
 #!/usr/bin/node
 
-export default async function getResponseFromAPI() {
-  return null;
+export default function getResponseFromAPI() {
+  return new Promise((resolve, reject) => {
+    resolve("foo");
+  });
 }
