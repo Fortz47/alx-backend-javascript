@@ -1,5 +1,5 @@
 #!/usr/bin/node
 
-export async function getResponseFromAPI() {
+export default async function getResponseFromAPI() {
   return null;
 }
