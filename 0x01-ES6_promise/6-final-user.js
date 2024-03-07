@@ -12,7 +12,7 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
   return Promise.allSettled(promises)
     .then((res) => {
       res.forEach((obj) => {
-        const value = (obj.status === 'fulfilled') ? res.value : res.reason;
+        const value = (obj.status === 'fulfilled') ? obj.value : obj.reason;
         array.push({ status: obj.status, value });
       });
       return array;
