@@ -7,10 +7,5 @@ export default function initializeRooms() {
   for (const val of [19, 20, 34]) {
     arr.push(new ClassRoom(val));
   }
-  const result = [];
-  for (const obj of arr) {
-    const [key, val] = Object.entries(obj)[0];
-    result.push(`ClassRoom { ${key}: ${val} }`);
-  }
-  return result;
+  return arr;
 }
