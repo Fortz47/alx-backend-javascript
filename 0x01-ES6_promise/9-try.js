@@ -1,8 +1,9 @@
 #!/usr/bin/node
 
 export default function guardrail(func) {
-  const queue = [];
-  queue.push(func());
-  queue.push('Guardrail was processed');
-  return queue;
+  try {
+    return [func(), 'Guardrail was processed'];
+  } catch (err) {
+    return [`Error: ${err.message}`, 'Guardrail was processed'];
+  }
 }
