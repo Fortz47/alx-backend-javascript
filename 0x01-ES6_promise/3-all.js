@@ -12,5 +12,7 @@ export default function handleProfileSignup() {
       process.stdout.write(` ${obj.firstName}`);
       process.stdout.write(` ${obj.lastName}\n`);
     })
-    .catch(() => console.error('Signup system offline'));
+    .catch(() => {
+      console.log('Signup system offline');
+    });
 }
