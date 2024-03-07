@@ -3,7 +3,7 @@
 import { uploadPhoto, createUser } from './utils';
 
 export default function handleProfileSignup() {
-  uploadPhoto()
+  return uploadPhoto()
     .then((obj) => {
       process.stdout.write(`${obj.body} `);
       return createUser();
