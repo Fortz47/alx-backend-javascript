@@ -5,5 +5,5 @@ import signUpUser from './4-user-promise';
 
 export default function handleProfileSignup(firstName, lastName, fileName) {
   const promises = [signUpUser(firstName, lastName), uploadPhoto(fileName)];
-  return Promise.settled(promises);
+  return Promise.allSettled(promises);
 }
