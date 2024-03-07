@@ -3,12 +3,18 @@
 import uploadPhoto from './5-photo-reject';
 import signUpUser from './4-user-promise';
 
-export default async function handleProfileSignup(firstName, lastName, fileName) {
-  return Promise.allSettled([signUpUser(firstName, lastName), uploadPhoto(fileName)])
+import uploadPhoto from './5-photo-reject';
+import signUpUser from './4-user-promise';
+
+export default function handleProfileSignup(firstName, lastName, fileName) {
+  const promises = [signUpUser(firstName, lastName), uploadPhoto(fileName)];
+  const array = [];
+  return Promise.allSettled(promises)
     .then((res) => {
-      res.map((obj) => {
+      res.forEach((obj) => {
         const value = (obj.status === 'fulfilled') ? res.value : res.reason;
-        return { status: obj.status, value };
+        array.push({ status: obj.status, value });
       });
+      return array;
     });
 }
