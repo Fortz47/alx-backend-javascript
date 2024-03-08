@@ -1,5 +1,5 @@
 #!/usr/bin/node
 
 export default function iterateThroughObject(reportWithIterator) {
-  return ([...(Object.values(report.allEmployees))].join(" | "));
+  return ([(Object.values(report.allEmployees))].join(" | "));
 }
