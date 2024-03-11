@@ -1,5 +1,3 @@
-#!/usr/bin/node
-
 export default function guardrail(func) {
   try {
     return [func(), 'Guardrail was processed'];
