@@ -9,4 +9,4 @@ const newRowID: RowID = CRUD.insertRow(row);
 row.age = 23;
 const updatedRow: RowElement = row;
 CRUD.updateRow(newRowID, updatedRow);
-CRUD.deleteRow(125);
+CRUD.deleteRow(newRowID);
