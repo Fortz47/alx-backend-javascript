@@ -6,4 +6,7 @@ import * from './crud' as CRUD;
 const row = { firstName: 'Guillaume', lastName: 'Salva' };
 
 const newRowID: RowID = CRUD.insertRow(row);
-const updatedRow: RowElement = CRUD.updatedRow(23, row);
+row.age = 23;
+const updatedRow: RowElement = row;
+CRUD.updateRow(newRowID, updatedRow);
+CRUD.deleteRow(125);
