@@ -11,7 +11,7 @@ describe('calculateNumber', () => {
     it('should return 5 when adding 1 and 3.7', () => {
       expect(calculateNumber('SUM', 1, 3.7)).to.equal(5);
     });
-    it('should return 5 when adding 1.2 and 3.7', () => {
+    it('should return  5 when adding 1.2 and 3.7', () => {
       expect(calculateNumber('SUM', 1.2, 3.7)).to.equal(5);
     });
     it('should return -4 when adding -1 and -3', () => {
