@@ -64,12 +64,14 @@ describe('Login page', () => {
   };
   it('Status code should be 200', (done) => {
     request.post(options, (error, response, body) => {
+      if (error) done(error);
       expect(response.statusCode).to.equal(200);
       done();
     });
   });
   it('Body should be "Welcome Betty"', (done) => {
     request.post(options, (error, response, body) => {
+      if (error) done(error);
       expect(body).to.equal('Welcome Betty');
       done();
     });
