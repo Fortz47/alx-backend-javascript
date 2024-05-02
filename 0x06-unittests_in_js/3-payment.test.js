@@ -10,5 +10,6 @@ describe('sendPaymentRequestToApi', () => {
     sinon.spy(Utils, 'calculateNumber');
     sendPaymentRequestToApi(100, 20);
     expect(Utils.calculateNumber.calledWith('SUM', 100, 20)).to.be.true;
+    Utils.calculateNumber.restore();
   });
 });
