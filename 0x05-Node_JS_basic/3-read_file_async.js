@@ -29,7 +29,7 @@ function countStudents(path) {
         console.log(msg1);
         console.log(msg2);
         console.log(msg3);
-        resolve(`${msg1}\n${msg2}\n${msg3}\n`);
+        resolve(`${msg1}\n${msg2}\n${msg3}`);
       }
     });
   });
