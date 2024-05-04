@@ -1,8 +1,8 @@
 #!/usr/bin/node
 
-import { readDatabase } from "../utils";
+import { readDatabase } from '../utils';
 
-export class StudentsController {
+export default class StudentsController {
   static getAllStudents(request, response) {
     readDatabase(process.argv[2])
       .then(({ csStudents, sweStudents }) => {

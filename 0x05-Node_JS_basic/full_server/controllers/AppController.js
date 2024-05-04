@@ -1,8 +1,8 @@
 #!/usr/bin/node
 
-export class AppController {
+export default class AppController {
   static getHomepage(request, response) {
     response.statusCode = 200;
-    response.end('Hello Holberton School!')
+    response.end('Hello Holberton School!');
   }
 }
