@@ -14,13 +14,15 @@ const app = createServer(async (req, res) => {
   } else if (req.url === '/students') {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
-    const msg = 'This is the list of our students\n';
+    let msg = 'This is the list of our students\n';
     await countStudents(process.argv[2])
       .then((data) => {
-        res.end(msg + data);
+        msg += data;
+        res.end(msg);
       })
       .catch((error) => {
-        console.log(error.message);
+        msg += error.message;
+        res.end(msg);
       });
   }
 });
