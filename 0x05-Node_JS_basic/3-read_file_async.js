@@ -4,7 +4,7 @@ const fs = require('fs');
 
 function countStudents(path) {
   return new Promise((resolve, reject) => {
-    fs.readFile(path, 'utf-8', (err, data) => {
+    fs.readFile(path, 'utf8', (err, data) => {
       if (err) {
         reject(new Error('Cannot load the database'));
       } else {
@@ -12,20 +12,24 @@ function countStudents(path) {
         const SWE = [];
         let count = 0;
         const toList = data.split('\n');
+        // remove field names
         toList.shift();
         toList.forEach((val) => {
           const values = val.split(',');
-          if (values[3] === 'CS') {
+          if (values[3] === 'CS\r') {
             CS.push(values[0]);
-          } else if (values[3] === 'SWE') {
+          } else if (values[3] === 'SWE\r') {
             SWE.push(values[0]);
           }
           if (val) count += 1;
         });
-        console.log(`Number of students: ${count}`);
-        console.log(`Number of students in CS: ${CS.length}. List: ${CS.join(', ')}`);
-        console.log(`Number of students in SWE: ${SWE.length}. List: ${SWE.join(', ')}`);
-        resolve({});
+        const msg1 = `Number of students: ${count}`;
+        const msg2 = `Number of students in CS: ${CS.length}. List: ${CS.join(', ')}`;
+        const msg3 = `Number of students in SWE: ${SWE.length}. List: ${SWE.join(', ')}`;
+        console.log(msg1);
+        console.log(msg2);
+        console.log(msg3);
+        resolve(`${msg1}\n${msg2}\n${msg3}`);
       }
     });
   });
