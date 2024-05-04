@@ -1,16 +1,12 @@
 #!/usr/bin/node
 
-import { AppController } from '../controllers/AppController';
-import { StudentsController } from '../controllers/StudentsController';
+import AppController from '../controllers/AppController';
+import StudentsController from '../controllers/StudentsController';
 
-class Routes {
-  static getRoutes() {
-    return {
-      '/': AppController.getHomepage,
-      '/students': StudentsController.getAllStudents,
-      '/students/:major': StudentsController.getAllStudentsByMajor,
-    };
-  }
-}
+const mapRoutes = (app) => {
+  app.get('/', AppController.getHomepage);
+  app.get('/students', StudentsController.getAllStudents);
+  app.get('/students/:major', StudentsController.getAllStudentsByMajor);
+};
 
-export default Routes;
+export default mapRoutes;
