@@ -2,7 +2,7 @@
 
 import fs from 'fs';
 
-export function readDatabase(path){
+function readDatabase(path){
 	return new Promise((resolve, reject) => {
 		fs.readFile(path, 'utf8', (err, data) => {
 			if (err) {
@@ -17,3 +17,5 @@ export function readDatabase(path){
 		});
 });
 }
+
+export default readDatabase;

@@ -1,14 +1,16 @@
 #!/usr/bin/node
 
-import { AppController } from "../controllers/AppController";
-import { StudentsController } from "../controllers/StudentsController";
+import { AppController } from '../controllers/AppController';
+import { StudentsController } from '../controllers/StudentsController';
 
-export class Routes {
+class Routes {
   static getRoutes() {
     return {
       '/': AppController.getHomepage,
       '/students': StudentsController.getAllStudents,
-      '/students/:major': StudentsController.getAllStudentsByMajor
-    }
+      '/students/:major': StudentsController.getAllStudentsByMajor,
+    };
   }
 }
+
+export default Routes;
