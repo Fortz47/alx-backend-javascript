@@ -6,7 +6,7 @@ const countStudents = require('./3-read_file_async');
 const hostname = '127.0.0.1';
 const port = 1245;
 
-const app = createServer((req, res) => {
+const app = createServer(async (req, res) => {
   if (req.url === '/') {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
@@ -15,7 +15,7 @@ const app = createServer((req, res) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
     const msg = 'This is the list of our students\n';
-    countStudents(process.argv[2])
+    await countStudents(process.argv[2])
       .then((data) => {
         res.end(msg + data);
       })
