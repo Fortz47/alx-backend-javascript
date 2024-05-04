@@ -14,10 +14,10 @@ const app = createServer((req, res) => {
   } else if (req.url === '/students') {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
-    res.write('This is the list of our students\n');
+    const msg = 'This is the list of our students\n';
     countStudents(process.argv[2])
       .then((data) => {
-        res.end(data);
+        res.end(msg + data);
       })
       .catch((error) => {
         console.log(error.message);
